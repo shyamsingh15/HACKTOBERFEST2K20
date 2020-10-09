@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+	// your code goes here
+	char a[100000],b[100000],c;
+	string str1,str2;
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int i,j,t,h1[26]={0},h2[26]={0};
+	   	string str1,str2;
+	    cin>>a;
+	    cin>>b;
+	    j=0;
+	    while(a[j]!='\0')
+	    {
+	        h1[a[j]-97]++;
+	        j++;
+	    }
+	    j=0;
+	    while(b[j]!='\0')
+	    {
+	        h2[b[j]-97]++;
+	        j++;
+	    }
+	    for(i=0;i<26;i++)
+	      h1[i]=h1[i]-h2[i];
+	    for(i=0;i<26;i++)
+	    {
+	      if(i+97==b[0])
+	      {
+	          str2+=b;
+	          while(h1[i]!=0)
+	          {
+	              c=i+97;
+	              str1+=c;
+	              str2+=c;
+	              h1[i]--;
+	          }
+	         str1+=b;
+	      }
+	      else if(h1[i]!=0)
+	      {
+	          while(h1[i]!=0)
+	          {
+	              c=i+97;
+	              str1+=c;
+	              str2+=c;
+	              h1[i]--;
+	          }
+	      }
+	    }
+	    cout<<min(str1,str2)<<endl;
+	}
+	return 0;
+}
