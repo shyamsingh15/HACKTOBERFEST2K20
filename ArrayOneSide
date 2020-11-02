@@ -1,0 +1,29 @@
+import java.util.*;
+
+class NegativeSide {
+	public static void main (String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	        int n = sc.nextInt();                           /*Number of elements in array*/
+	        int a[]=new int[n];
+	        for(int j=0;j<n;j++){                           /*Size of the array*/
+	            a[j]=sc.nextInt();
+	        }
+	        int c=0;
+	        int d=n-1;
+	        int b[]=new int[n];
+	        for(int j=0;j<n;j++){                         /*if element is negative add from begining*/
+	            if (a[j]<0){
+	                b[c]=a[j];
+	                c++;
+	            }
+	            else{
+	                b[d]=a[j];                          /*if element is positive add from end*/
+	                d--;
+	            }
+	        }
+	        for(int j=0;j<n;j++){
+	            System.out.print(b[j]+" ");
+	        }
+	        System.out.println();
+	}
+}
